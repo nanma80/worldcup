@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>world cup</title>
+  <script src="lib/jquery-2.1.0.min.js"></script>
+</head>
+<body>
+Haha
+<script type="text/javascript">
+
+  $.ajax({
+    url: "http://us.wc.fantasysports.yahoo.com/world-cup/248599",
+    context: document.body
+  }).done(function() {
+    console.log('done');
+  });
+
+</script>
+</body>
+</html>
