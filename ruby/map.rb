@@ -9,11 +9,17 @@ limit = 20
 precision = 5.0
 
 guesses = []
-limit.times do |a_index|
+lambdas = []
+limit.times do |index|
+  lambdas << (index / precision)
+end
+
+guesses << lambdas
+
+lambdas.each do |a_lambda|
   row = []
-  limit.times do |b_index|
-    a_lambda = a_index / precision
-    b_lambda = b_index / precision
+  lambdas.each do |b_lambda|
+    
     match_model = MatchModel.new([a_lambda, b_lambda])
     
     row << match_model.best_guess[:guess]
@@ -23,6 +29,6 @@ limit.times do |a_index|
 end
 
 guesses.each do |row|
-  p row
+  puts row.join("\t")
 end
 
